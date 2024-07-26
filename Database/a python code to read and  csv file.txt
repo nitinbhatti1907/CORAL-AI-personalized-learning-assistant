@@ -1,0 +1,41 @@
+Here is a Python code to read and write a CSV file:
+```python
+import csv
+
+# Read CSV file
+def read_csv(file_path):
+    with open(file_path, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        data = []
+        for row in csvreader:
+            data.append(row)
+    return data
+
+# Write CSV file
+def write_csv(file_path, data):
+    with open(file_path, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerows(data)
+
+# Example usage
+file_path = 'example.csv'
+data = read_csv(file_path)
+print("Original data:")
+for row in data:
+    print(row)
+
+# Modify data
+data[0][0] = 'New value'
+
+# Write modified data to a new CSV file
+new_file_path = 'modified_example.csv'
+write_csv(new_file_path, data)
+print("\nModified data written to 'modified_example.csv':")
+new_data = read_csv(new_file_path)
+for row in new_data:
+    print(row)
+```
+
+This code defines two functions: `read_csv` and `write_csv`. The `read_csv` function reads a CSV file and returns the data as a list of lists, where each inner list represents a row in the CSV file. The `write_csv` function takes a list of lists and writes it to a CSV file.
+
+In the example usage, the code reads data from a CSV file named "example.csv", modifies the first element of the first row, and then writes the modified data to a new CSV file named "modified_example.csv". Finally, it reads and prints the data from the new CSV file to verify the changes.

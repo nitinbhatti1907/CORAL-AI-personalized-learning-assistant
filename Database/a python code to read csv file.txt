@@ -1,0 +1,19 @@
+Here is a Python code to read a CSV file:
+```python
+import csv
+
+# Specify the file path
+file_path = "data.csv"
+
+# Open the CSV file
+with open(file_path, "r") as csvfile:
+    # Create a CSV reader object
+    csvreader = csv.reader(csvfile)
+    
+    # Iterate over the rows in the CSV file
+    for row in csvreader:
+        # Print each row
+        print(row)
+```
+
+This code uses the `csv` module to read a CSV file. The `open` function is used to open the file in read mode, and the `csv.reader` class is used to create a CSV reader object that can iterate over the rows in the file. The `for` loop then iterates over each row in the CSV file and prints it.
